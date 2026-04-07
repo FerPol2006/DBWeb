@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Jugadores</title>
+</head>
+<body>
+<h1>Listado de Jugadores</h1>
+<a th:href="@{/jugadores/nuevo}">Agregar Jugador</a>
+<br>
+<br>
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Posicion</th>
+        <th>Numero</th>
+        <th>Acciones</th>
+    </tr>
+    <tbody>
+    <tr th:if="${#lists.isEmpty(jugadores)}">
+        <td colspan="5">No hay jugadores registrados</td>
+    </tr>
+    <tr th:each="jugador : ${jugadores}">
+        <td th:text="${jugador.id}"></td>
+        <td th:text="${jugador.nombre}"></td>
+        <td th:text="${jugador.posicion}"></td>
+        <td th:text="${jugador.numero}"></td>
+        <td>
+            <a th:href="@{/jugadores/actualizar/{id}(id=${jugador.id})}">Actualizar</a>
+            <a th:href="@{/jugadores/eliminar/{id}(id=${jugador.id})}">Eliminar</a>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+</body>
+</html>
