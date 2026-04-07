@@ -1,11 +1,10 @@
 services:
   - type: web
     name: crud-jugadores-entrenadores
-    runtime: java
-    rootDir: db
+    env: java
     plan: free
-    buildCommand: ./mvnw clean package -DskipTests
-    startCommand: java -jar target/*.jar
+    buildCommand: cd db && ./mvnw clean package -DskipTests
+    startCommand: cd db && java -jar target/*.jar
     envVars:
       - key: JAVA_VERSION
         value: 17
