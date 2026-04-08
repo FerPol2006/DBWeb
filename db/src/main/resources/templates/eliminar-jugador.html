@@ -12,6 +12,7 @@
 <form th:action="@{/jugadores/eliminar/{id}(id=${jugador.id})}" method="post">
     <button type="submit">Eliminar</button>
 </form>
+<a th:href="@{/}">Inicio</a>
 <a th:href="@{/jugadores}">Cancelar</a>
 </body>
 </html>
